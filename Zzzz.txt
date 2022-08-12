@@ -1,0 +1,70 @@
+root : Hadoop123
+echo "welcome1" | sudo passwd --stdin hdpuser
+echo "guest-password" | sudo passwd --stdin guest
+
+
+http://192.168.56.171:50070/dfshealth.html#tab-overview ( name node )
+
+##A max of 26 hard disks can be added to the hadoop cluster 
+
+
+
+drwxr-
+
+r - read
+w - write
+xr - execute
+
+====================
+
+====to check in all machines :
+[hdpuser@h2n1 ~]$ clush -g all -b "ls /var/www/html";
+---------------
+192.168.56.[171-176] (6)
+---------------
+hadoop-2.7.3.tar.gz
+
+### block pool ID id given by Name Node at the time of regestration. ##
+
+FSShell is a thread opend during execution 
+
+
+##sudo vi /usr/local/hadoop/etc/hadoop/core-site.xml  == to know who is the name node
+
+
+###sudo vi /usr/local/hadoop/etc/hadoop/hdfs-site.xml  == configuration 
+
+<property>
+<name>dfs.replication</name>   -- replication 3
+<value>3</value>
+</property>
+
+<property>
+<name>dfs.block.size</name>     --- block size 128 MB (mentioned in bytes)
+<value>134217728</value>
+</property>
+
+<property>
+<name>dfs.namenode.name.dir</name>  -- location of FSimage
+<value>file:/mnt/disk1/name</value>
+</property>
+
+<property>
+<name>dfs.namenode.edits.dir</name>   -- location of edits 
+<value>file:/mnt/disk1/edits</value>
+</property>
+
+<property>
+<name>dfs.datanode.data.dir</name>  -- location of HDFS for datanode disk1(data block location)
+<value>file:/mnt/disk1/data</value>
+</property>
+
+<property>
+<name>dfs.acl.enable</name>
+<value>true</value>
+</property>
+
+<property>
+<name>dfs.hosts.exclude</name>
+<value>/usr/local/hadoop/etc/hadoop/exclude.txt</value>
+</property>
